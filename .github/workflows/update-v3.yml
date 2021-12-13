@@ -12,6 +12,7 @@ jobs:
           ref: v3
       - name: merge origin/next into v3
         run: |
+          git fetch origin
           git merge origin/next
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
