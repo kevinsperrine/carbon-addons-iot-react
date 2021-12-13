@@ -8,13 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: next
       - name: merge origin/next into v3
         run: |
           git fetch origin
           git checkout --track origin/v3
-          git merge next
+          git merge origin/next
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
