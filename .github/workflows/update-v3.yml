@@ -10,9 +10,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: v3
-      - name: Reset next branch
+          fetch-depth: 0
+      - name: merge origin/next into v3
         run: |
-          git fetch origin next:next
+          git config user.name "carbon-bot"
+          git config user.email "carbon@us.ibm.com"
           git merge origin/next
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
